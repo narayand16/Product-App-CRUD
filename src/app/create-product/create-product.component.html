@@ -8,7 +8,7 @@
         <div class="form-row">
           <div class="col-md-4 ">
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name">Name<span class="text-danger">*</span></label>
               <input type="text" id="name" class="form-control" name="name" formControlName="name" />
               <div
                 *ngIf="(productForm.get('name').invalid && (productForm.get('name').touched || productForm.get('name').dirty))">
@@ -19,7 +19,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="hsnCode">HSN Code</label>
+              <label for="hsnCode">HSN Code<span class="text-danger">*</span></label>
               <input type="number" id="hsnCode" class="form-control" name="hsnCode" formControlName="hsnCode"
                 [readonly]="hsnCode" />
               <div
@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="displayUnit">Display Unit</label>
+              <label for="displayUnit">Display Unit<span class="text-danger">*</span></label>
               <input type="text" id="displayUnit" class="form-control" name="displayUnit"
                 formControlName="displayUnit" />
               <div
@@ -46,7 +46,7 @@
         <div class="form-row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="tax">Tax</label>
+              <label for="tax">Tax<span class="text-danger">*</span></label>
               <input type="text" id="tax" class="form-control" name="tax" formControlName="tax" />
               <div
                 *ngIf="(productForm.get('tax').invalid && (productForm.get('tax').touched || productForm.get('tax').dirty))">
@@ -57,7 +57,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="price">Price</label>
+              <label for="price">Price<span class="text-danger">*</span></label>
               <input type="text" id="price" class="form-control" name="price" formControlName="price" />
               <div
                 *ngIf="(productForm.get('price').invalid && (productForm.get('price').touched || productForm.get('price').dirty))">

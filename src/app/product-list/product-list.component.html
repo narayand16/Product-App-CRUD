@@ -5,15 +5,15 @@
             <i class="fa fa-plus-circle" aria-hidden="true"></i>
             Add Product</button>
     </div>
-    <div class="search-container">
-        <div class="d-inline-block m-1 form-group">
+    <div class="d-flex search-container">
+        <div class="m-1 form-group">
             <label for="Name">Name</label>
             <div class="">
                 <input type="text" id="name" class="form-control" autocomplete="off" placeholder="Enter name"
                     (input)="search($event)">
             </div>
         </div>
-        <div class="d-inline-block m-1">
+        <div class="m-1">
             <label for="Price">Price</label>
             <div class="input=group">
                 <input type="number" id="price" class="form-control" min="1" autocomplete="off"
@@ -51,7 +51,7 @@
                     <tbody class="m-2">
                         <tr>
                             <td colspan="7">
-                                Oops..No records available !!!
+                                No records available !!!
                             </td>
                         </tr>
                     </tbody>
