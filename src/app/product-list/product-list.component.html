@@ -1,0 +1,66 @@
+<div class="list-container">
+    <div class="head-container">
+        <h5 class="header-title">PRODUCTS</h5>
+        <button class="btn btn-light add-btn" (click)="addProduct()">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            Add Product</button>
+    </div>
+    <div class="search-container">
+        <div class="d-inline-block m-1 form-group">
+            <label for="Name">Name</label>
+            <div class="">
+                <input type="text" id="name" class="form-control" autocomplete="off" placeholder="Enter name"
+                    (input)="search($event)">
+            </div>
+        </div>
+        <div class="d-inline-block m-1">
+            <label for="Price">Price</label>
+            <div class="input=group">
+                <input type="number" id="price" class="form-control" min="1" autocomplete="off"
+                    placeholder="Enter price" (input)="search($event)">
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                    <th scope="col" *ngFor="let head of headers">{{ head }}</th>
+                </thead>
+                <tbody *ngIf="products && products.length;else no_table_content">
+                    <tr *ngFor="let item of products | paginate: config; let i= index">
+                        <td> {{ i+1 }}</td>
+                        <td> {{ item.name | uppercase }}</td>
+                        <td> {{ item.hsnCode }}</td>
+                        <td> {{ item.price }}</td>
+                        <td> {{ item.displayUnit }}</td>
+                        <td> {{ item.tax }}</td>
+                        <td>
+                            <div>
+                                <button class="btn btn-light m-1" (click)="editProduct(item)">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+                                <button class="btn btn-light m-1" (click)="removeProduct(i)">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                    Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <ng-template #no_table_content>
+                    <tbody class="m-2">
+                        <tr>
+                            <td colspan="7">
+                                Oops..No records available !!!
+                            </td>
+                        </tr>
+                    </tbody>
+                </ng-template>
+            </table>
+            <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+        </div>
+        <div class="pagination justify-content-end m-3">
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </div>
+</div>

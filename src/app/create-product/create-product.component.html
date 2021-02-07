@@ -1,0 +1,99 @@
+<div>
+  <div class="head-container">
+    <h5 class="header-title ">Add Product</h5>
+  </div>
+  <div class="form-wrapper">
+    <form class="form-content" autocomplete="off" [formGroup]="productForm" (ngSubmit)="saveProduct()">
+      <fieldset>
+        <div class="form-row">
+          <div class="col-md-4 ">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" name="name" formControlName="name" />
+              <div
+                *ngIf="(productForm.get('name').invalid && (productForm.get('name').touched || productForm.get('name').dirty))">
+                <span class="text-danger" *ngIf='productForm.controls.name.errors?.required'>Please enter
+                  valid name</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="hsnCode">HSN Code</label>
+              <input type="number" id="hsnCode" class="form-control" name="hsnCode" formControlName="hsnCode"
+                [readonly]="hsnCode" />
+              <div
+                *ngIf="(productForm.get('hsnCode').invalid && (productForm.get('hsnCode').touched || productForm.get('hsnCode').dirty))">
+                <span class="text-danger" *ngIf='productForm.controls.hsnCode.errors?.required'>Please enter
+                  valid HSN Code</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="displayUnit">Display Unit</label>
+              <input type="text" id="displayUnit" class="form-control" name="displayUnit"
+                formControlName="displayUnit" />
+              <div
+                *ngIf="(productForm.get('displayUnit').invalid && (productForm.get('displayUnit').touched || productForm.get('displayUnit').dirty))">
+                <span class="text-danger" *ngIf='productForm.controls.displayUnit.errors?.required'>Please enter
+                  valid display unit</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="tax">Tax</label>
+              <input type="text" id="tax" class="form-control" name="tax" formControlName="tax" />
+              <div
+                *ngIf="(productForm.get('tax').invalid && (productForm.get('tax').touched || productForm.get('tax').dirty))">
+                <span class="text-danger" *ngIf='productForm.controls.tax.errors?.required'>Please enter
+                  valid tax</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="text" id="price" class="form-control" name="price" formControlName="price" />
+              <div
+                *ngIf="(productForm.get('price').invalid && (productForm.get('price').touched || productForm.get('price').dirty))">
+                <span class="text-danger" *ngIf='productForm.controls.price.errors?.required'>Please enter
+                  valid price</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="productType">Product Type </label>
+              <input type="text" id="productType" class="form-control" name="productType"
+                formControlName="productType" />
+            </div>
+          </div>
+
+        </div>
+        <div class="form-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea type="text" id="description" class="form-control" name="description"
+                formControlName="description"></textarea>
+            </div>
+          </div>
+          <div class="col-8">
+          </div>
+        </div>
+
+      </fieldset>
+
+      <div class="submit-container ml-1">
+        <input class="btn btn-primary mr-2" type="submit" [disabled]="!productForm.valid" value="Save" />
+        <button class="btn btn-dark" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+</div>
